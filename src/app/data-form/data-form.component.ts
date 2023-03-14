@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ServiceService } from '../service.service';
 import { DropdownService } from '../shared/services/dropdown.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class DataFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private dropdownService: DropdownService
+    private dropdownService: DropdownService,
+    private service: ServiceService
   ) {
   }
 
@@ -67,12 +69,15 @@ export class DataFormComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.formulario.value)
+    this.service.salvar(this.formulario.value).subscribe(value =>{
+      console.log(value)
+      this.formulario.reset()}, (erro: any) => alert("Erro"))
 
-    this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
-      .subscribe(dados => {
-        console.log(dados)
-        this.formulario.reset()
-      }, (erro: any) => alert("Erro"))
+    // this.http.post('http://localhost:8080/api/v1/funcionario', JSON.stringify(this.formulario.value))
+    //   .subscribe(dados => {
+    //     console.log(dados)
+    //     this.formulario.reset()
+    //   }, (erro: any) => alert("Erro"))
   }
 
   // verificaValidTouched(campo: String){
