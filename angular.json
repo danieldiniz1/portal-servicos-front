@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "portal"
+    }
+  },
+  "defaultProject": "portal",
+  "cli": {
+    "analytics": "632e92a1-fcbb-4add-acf9-ccbdb31f5d15"
+  }
 }
