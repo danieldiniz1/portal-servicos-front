@@ -1,0 +1,43 @@
+<br>
+<div class="container">
+    <form class="form-horizontal" [formGroup]="formPessoal" (ngSubmit)="onSubmit()">
+        <br>
+        <h5 class="main-title">Dados Pessoais</h5>
+        <hr>
+        <div class="form-group" [ngClass]="aplicaCssErro('nome')">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+            <app-campo-control-erro [mostrarErro]="verificaValidTouched('nome')" msgErro="Nome é obrigatório.">
+            </app-campo-control-erro>
+        </div>
+        <div class="form-group" [ngClass]="aplicaCssErro('sobrenome')">
+            <label for="sobrenome">SobreNome</label>
+            <input type="text" class="form-control" id="sobrenome" placeholder="Sobrenome" formControlName="sobrenome">
+            <app-campo-control-erro [mostrarErro]="verificaValidTouched('sobrenome')"
+                msgErro="Sobrenome é obrigatório.">
+            </app-campo-control-erro>
+        </div>
+        <div class="form-group" [ngClass]="aplicaCssErro('cpf')">
+            <label for="cpf">CPF</label>
+            <input type="text" class="form-control" id="cpf" placeholder="Somente Números" maxlength="11"
+                formControlName="cpf">
+            <app-campo-control-erro [mostrarErro]="verificaValidTouched('cpf')" msgErro="CPF é obrigatório.">
+            </app-campo-control-erro>
+        </div>
+        <div class="form-group" [ngClass]="aplicaCssErro('email')">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="E-mail" formControlName="email">
+            <app-campo-control-erro [mostrarErro]="verificaValidTouched('email')" msgErro="E-mail é obrigatório.">
+            </app-campo-control-erro>
+        </div>
+        <div class="form-group" [ngClass]="aplicaCssErro('telefone')">
+            <label for="telefone">Telefone</label>
+            <input type="tel" class="form-control" id="telefone" placeholder="Telefone" formControlName="telefone">
+            <app-campo-control-erro [mostrarErro]="verificaValidTouched('telefone')" msgErro="Telefone é obrigatório.">
+            </app-campo-control-erro>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+
+        <app-form-debug [form]="formPessoal"></app-form-debug>
+    </form>
+</div>

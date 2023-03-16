@@ -80,11 +80,11 @@ export class DataFormComponent implements OnInit {
     //   }, (erro: any) => alert("Erro"))
   }
 
-  // verificaValidTouched(campo: String){
-  // return !this.formulario.get(campo).valid && this.formulario.get(campo).touched
-  // }
+  verificaValidTouched(campo: any){
+  return !this.formulario.get(campo).valid && this.formulario.get(campo).touched
+  }
 
-  // aplicaCssErro(campo: String){
+  // aplicaCssErro(campo: any){
   //   return {
   //     'has-error': this.verificaValidTouched(campo),
   //     'has-feedback': this.verificaValidTouched(campo)

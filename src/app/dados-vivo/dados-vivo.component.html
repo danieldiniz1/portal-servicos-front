@@ -1,0 +1,94 @@
+<br>
+<div class="container">
+    <form class="form-horizontal" [formGroup]="formVivo" (ngSubmit)="onSubmit()">
+        <br>
+        <h5 class="main-title">Dados Vivo</h5>
+        <hr>
+        <div class="form-group">
+            <div class="form-group">
+                <label for="contrato">Contrato</label>
+                <input type="text" class="form-control" id="contrato" placeholder="Contrato" formControlName="contrato">
+                <app-campo-control-erro [mostrarErro]="verificaValidTouched('contrato')" msgErro="O contrato é obrigatório.">
+                </app-campo-control-erro>
+            </div>
+            <div class="form-group">
+                <label for="sUser">S-User</label>
+                <input type="text" class="form-control" id="sUser" placeholder="S-User" formControlName="sUser">
+                <app-campo-control-erro [mostrarErro]="verificaValidTouched('sUser')" msgErro="O S-User é obrigatório.">
+                </app-campo-control-erro>
+            </div>
+            <div class="form-group">
+                <label for="acesso">Acesso</label>
+                <div class="form-check">
+                    <input class="form-check-input" value="sim" type="radio" formControlName="acesso"
+                        id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Sim
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="nao" type="radio" formControlName="acesso"
+                        id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Não
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="acessoJira">Acesso Jira</label>
+                <div class="form-check">
+                    <input class="form-check-input" value="sim" type="radio" formControlName="acessoJira"
+                        id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Sim
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="nao" type="radio" formControlName="acessoJira"
+                        id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Não
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="acessoGitLab">Acesso GitLab</label>
+                <div class="form-check">
+                    <input class="form-check-input" value="sim" type="radio" formControlName="acessoGitLab"
+                        id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Sim
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="nao" type="radio" formControlName="acessoGitLab"
+                        id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Não
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="acessoWiki">Acesso Wiki</label>
+                <div class="form-check">
+                    <input class="form-check-input" value="sim" type="radio" formControlName="acessoWiki"
+                        id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Sim
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="nao" type="radio" formControlName="acessoWiki"
+                        id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Não
+                    </label>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+
+        <!-- <app-form-debug [form]="formVivo"></app-form-debug> -->
+    </form>
+</div>
+<br>
