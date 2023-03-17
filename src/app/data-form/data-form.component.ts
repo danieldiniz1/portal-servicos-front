@@ -37,14 +37,14 @@ export class DataFormComponent implements OnInit {
       segmento: ['', [Validators.nullValidator, Validators.required]],
       codigoSAP: ['', [Validators.nullValidator, Validators.required]],
       desligamento: this.formBuilder.group({
-        estaDesligado: ['', [Validators.required]],
-        devolucaoEquipamento: ['', Validators.required],
+        estaDesligado: ['nao', [Validators.required]],
+        devolucaoEquipamento: ['nao', Validators.required],
         observacao: [''],
         dataAfastamento: [''],
         dataInforme: ['']
       }),
       ferias: this.formBuilder.group({
-        estaDeFerias: ['', [Validators.required]],
+        estaDeFerias: ['nao', [Validators.required]],
         dataPrevisao: [''],
         dataEfetivacao: [''],
         dataRetorno: [''],
@@ -59,19 +59,39 @@ export class DataFormComponent implements OnInit {
       dadosVivo: this.formBuilder.group({
         contrato: ['', [Validators.required]],
         sUser: ['', [Validators.required]],
-        acesso: ['', [Validators.required]],
-        acessoJira: ['', [Validators.required]],
-        acessoGitLab: ['', [Validators.required]],
-        acessoWiki: ['', [Validators.required]]
+        acesso: ['nao', [Validators.required]],
+        acessoJira: ['nao', [Validators.required]],
+        acessoGitLab: ['nao', [Validators.required]],
+        acessoWiki: ['nao', [Validators.required]]
+      }),
+      planejamentoSemanal: this.formBuilder.group({
+        titulo: [''],
+        descricao: [''],
+        dataInicio: [''],
+        dataFinalizacao: ['']
+      }),
+      certificacoes: this.formBuilder.group({
+        nome: [''],
+        descricao: [''],
+        dataInicio: [''],
+        dataFinalizacao: ['']
+      }),
+      atestados: this.formBuilder.group({
+        cid: [''],
+        motivo: [''],
+        medico: [''],
+        hospital: [''],
+        dataAfastamento: [''],
+        dataRetorno: ['']
       })
     })
 
   }
   onSubmit() {
     console.log(this.formulario.value)
-    this.service.salvar(this.formulario.value).subscribe(value =>{
-      console.log(value)
-      this.formulario.reset()}, (erro: any) => alert("Erro"))
+    // this.service.salvar(this.formulario.value).subscribe(value =>{
+    //   console.log(value)
+    //   this.formulario.reset()}, (erro: any) => alert("Erro"))
 
     // this.http.post('http://localhost:8080/api/v1/funcionario', JSON.stringify(this.formulario.value))
     //   .subscribe(dados => {

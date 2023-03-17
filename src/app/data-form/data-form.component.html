@@ -124,7 +124,8 @@
     <div class="form-group" formGroupName="dadosPessoais">
       <label for="sobrenome">SobreNome</label>
       <input type="text" class="form-control" id="sobrenome" placeholder="Sobrenome" formControlName="sobrenome">
-      <app-campo-control-erro [mostrarErro]="verificaValidTouched('dadosPessoais.sobrenome')" msgErro="Sobrenome é obrigatório.">
+      <app-campo-control-erro [mostrarErro]="verificaValidTouched('dadosPessoais.sobrenome')"
+        msgErro="Sobrenome é obrigatório.">
       </app-campo-control-erro>
     </div>
     <div class="form-group" formGroupName="dadosPessoais">
@@ -137,13 +138,15 @@
     <div class="form-group" formGroupName="dadosPessoais">
       <label for="email">Email</label>
       <input type="email" class="form-control" id="email" placeholder="email@email.com" formControlName="email">
-      <app-campo-control-erro [mostrarErro]="verificaValidTouched('dadosPessoais.email')" msgErro="E-mail é obrigatório.">
+      <app-campo-control-erro [mostrarErro]="verificaValidTouched('dadosPessoais.email')"
+        msgErro="E-mail é obrigatório.">
       </app-campo-control-erro>
     </div>
     <div class="form-group" formGroupName="dadosPessoais">
       <label for="telefone">Telefone</label>
       <input type="tel" class="form-control" id="telefone" placeholder="Telefone" formControlName="telefone">
-      <app-campo-control-erro [mostrarErro]="verificaValidTouched('dadosPessoais.telefone')" msgErro="Telefone é obrigatório.">
+      <app-campo-control-erro [mostrarErro]="verificaValidTouched('dadosPessoais.telefone')"
+        msgErro="Telefone é obrigatório.">
       </app-campo-control-erro>
     </div>
     <br>
@@ -153,7 +156,8 @@
       <div class="form-group" formGroupName="dadosVivo">
         <label for="contrato">Contrato</label>
         <input type="text" class="form-control" id="contrato" placeholder="Contrato" formControlName="contrato">
-        <app-campo-control-erro [mostrarErro]="verificaValidTouched('dadosVivo.contrato')" msgErro="Contrato é obrigatório.">
+        <app-campo-control-erro [mostrarErro]="verificaValidTouched('dadosVivo.contrato')"
+          msgErro="Contrato é obrigatório.">
         </app-campo-control-erro>
       </div>
       <div class="form-group" formGroupName="dadosVivo">
@@ -227,6 +231,74 @@
           </label>
         </div>
       </div>
+    </div>
+    <br>
+    <h5 class="main-title">Planejamento Semanal</h5>
+    <hr>
+    <div class="form-group" formGroupName="planejamentoSemanal">
+      <label for="titulo">Título</label>
+      <input type="text" class="form-control" id="titulo" placeholder="Título" formControlName="titulo">
+    </div>
+    <div class="form-group" formGroupName="planejamentoSemanal">
+      <div class="mb-3">
+        <label for="descricao" class="form-label">Descrição:</label>
+        <textarea class="form-control" id="descricao" rows="3" formControlName="descricao"></textarea>
+      </div>
+    </div>
+    <div class="form-group" formGroupName="planejamentoSemanal">
+      <label for="dataInicio">Data início</label>
+      <input type="date" class="form-control" id="dataInicio" formControlName="dataInicio">
+    </div>
+    <div class="form-group" formGroupName="planejamentoSemanal">
+      <label for="dataFinalizacao">Data finalização</label>
+      <input type="date" class="form-control" id="dataFinalizacao" formControlName="dataFinalizacao">
+    </div>
+    <br>
+    <h5 class="main-title">Certificações</h5>
+    <hr>
+    <div class="form-group" formGroupName="certificacoes">
+      <label for="nome">Nome</label>
+      <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+    </div>
+    <div class="form-group" formGroupName="certificacoes">
+      <div class="mb-3">
+        <label for="descricao" class="form-label">Descrição:</label>
+        <textarea class="form-control" id="descricao" rows="3" formControlName="descricao"></textarea>
+      </div>
+    </div>
+    <div class="form-group" formGroupName="certificacoes">
+      <label for="dataInicio">Data início</label>
+      <input type="date" class="form-control" id="dataInicio" formControlName="dataInicio">
+    </div>
+    <div class="form-group" formGroupName="certificacoes">
+      <label for="dataFinalizacao">Data finalização</label>
+      <input type="date" class="form-control" id="dataFinalizacao" formControlName="dataFinalizacao">
+    </div>
+    <br>
+    <h5 class="main-title">Atestados</h5>
+    <div class="form-group" formGroupName="atestados">
+      <label for="cid">CID</label>
+      <input type="text" class="form-control" id="cid" placeholder="CID" formControlName="cid">
+    </div>
+    <div class="form-group" formGroupName="atestados">
+      <label for="motivo">Motivo</label>
+      <input type="text" class="form-control" id="motivo" placeholder="Motivo" formControlName="motivo">
+    </div>
+    <div class="form-group" formGroupName="atestados">
+      <label for="medico">Médico</label>
+      <input type="text" class="form-control" id="medico" placeholder="Médico" formControlName="medico">
+    </div>
+    <div class="form-group" formGroupName="atestados">
+      <label for="hospital">Hospital</label>
+      <input type="text" class="form-control" id="hospital" placeholder="Hospital" formControlName="hospital">
+    </div>
+    <div class="form-group" formGroupName="atestados">
+      <label for="dataAfastamento">Data Afastamento</label>
+      <input type="date" class="form-control" id="dataAfastamento" formControlName="dataAfastamento">
+    </div>
+    <div class="form-group" formGroupName="atestados">
+      <label for="dataRetorno">Data finalização</label>
+      <input type="date" class="form-control" id="dataRetorno" formControlName="dataRetorno">
     </div>
     <hr>
     <button type="submit" class="btn btn-primary">Enviar</button>

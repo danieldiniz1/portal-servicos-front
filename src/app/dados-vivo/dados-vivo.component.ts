@@ -18,10 +18,10 @@ export class DadosVivoComponent implements OnInit {
     this.formVivo = this.formBuilder.group({
       contrato: ['', [Validators.required]],
       sUser: ['', [Validators.required]],
-      acesso: ['', [Validators.required]],
-      acessoJira: ['', [Validators.required]],
-      acessoGitLab: ['', [Validators.required]],
-      acessoWiki: ['', [Validators.required]]
+      acesso: ['nao', [Validators.required]],
+      acessoJira: ['nao', [Validators.required]],
+      acessoGitLab: ['nao', [Validators.required]],
+      acessoWiki: ['nao', [Validators.required]]
     })
   }
   onSubmit() {

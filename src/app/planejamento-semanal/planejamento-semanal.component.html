@@ -1,0 +1,40 @@
+<div class="container">
+    <br>
+    <h5 class="main-title">Planejamento Semanal</h5>
+    <hr>
+    <form class="form-horizontal" [formGroup]="formPlanejamento" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+        </div>
+        <div class="form-group">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" name="Sobrenome" class="form-control" id="sobrenome" placeholder="Sobrenome"
+                formControlName="sobrenome">
+        </div>
+
+        <div class="form-group">
+            <label for="titulo">Título</label>
+            <input type="text" class="form-control" id="titulo" placeholder="Título" formControlName="titulo">
+        </div>
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="descricao" class="form-label">Descrição:</label>
+                <textarea class="form-control" id="descricao" rows="3" formControlName="descricao"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dataInicio">Data início</label>
+            <input type="date" class="form-control" id="dataInicio" formControlName="dataInicio">
+        </div>
+        <div class="form-group">
+            <label for="dataFinalizacao">Data finalização</label>
+            <input type="date" class="form-control" id="dataFinalizacao" formControlName="dataFinalizacao">
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+
+        <app-form-debug [form]="formPlanejamento"></app-form-debug>
+    </form>
+</div>
+<br>
