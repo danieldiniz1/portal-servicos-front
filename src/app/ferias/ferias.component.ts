@@ -16,7 +16,7 @@ export class FeriasComponent implements OnInit {
 
   ngOnInit(): void {
     this.formFerias = this.formBuilder.group({
-      estaDeFerias: ['', [Validators.required]],
+      estaDeFerias: ['nao', [Validators.required]],
       dataPrevisao: [''],
       dataEfetivacao: [''],
       dataRetorno: [''],

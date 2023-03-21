@@ -11,10 +11,13 @@ import { FeriasComponent } from './ferias/ferias.component';
 import { DesligamentoComponent } from './desligamento/desligamento.component';
 import { DadosPessoaisComponent } from './dados-pessoais/dados-pessoais.component';
 import { DadosVivoComponent } from './dados-vivo/dados-vivo.component';
+import { AtestadosComponent } from './atestados/atestados.component';
+import { CertificacaoComponent } from './certificacao/certificacao.component';
+import { PlanejamentoSemanalComponent } from './planejamento-semanal/planejamento-semanal.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
     
   ],
   imports: [

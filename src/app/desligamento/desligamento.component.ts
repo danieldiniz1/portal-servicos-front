@@ -16,8 +16,8 @@ export class DesligamentoComponent implements OnInit {
 
   ngOnInit(): void {
     this.formDesligamento = this.formBuilder.group({
-      estaDesligado: ['', [Validators.required]],
-      devolucaoEquipamento: ['', Validators.required],
+      estaDesligado: ['nao', [Validators.required]],
+      devolucaoEquipamento: ['nao', Validators.required],
       observacao: [''],
       dataAfastamento: [''],
       dataInforme: ['']

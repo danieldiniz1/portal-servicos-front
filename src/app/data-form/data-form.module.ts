@@ -10,6 +10,9 @@ import { DadosPessoaisComponent } from '../dados-pessoais/dados-pessoais.compone
 import { DadosVivoComponent } from '../dados-vivo/dados-vivo.component';
 import { DesligamentoComponent } from '../desligamento/desligamento.component';
 import { FeriasComponent } from '../ferias/ferias.component';
+import { AtestadosComponent } from '../atestados/atestados.component';
+import { CertificacaoComponent } from '../certificacao/certificacao.component';
+import { PlanejamentoSemanalComponent } from '../planejamento-semanal/planejamento-semanal.component';
 
 
 
@@ -21,6 +24,9 @@ import { FeriasComponent } from '../ferias/ferias.component';
     DesligamentoComponent,
     DadosPessoaisComponent,
     DadosVivoComponent,
+    AtestadosComponent,
+    CertificacaoComponent,
+    PlanejamentoSemanalComponent,
   ],
   imports: [
     SharedModule,
