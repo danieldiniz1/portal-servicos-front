@@ -8,5 +8,8 @@ import { Observable } from "rxjs"
   export class ServiceFuncionario{
     url =  '/api'
     constructor(private http: HttpClient){ }
-   
+    // /api/v1/funcionario
+    createFuncionario(dados: any): Observable<any>{
+     return this.http.post<any>(`${this.url}/api/v1/funcionario/cadastrar`,dados)
+    }
   }

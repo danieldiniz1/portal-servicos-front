@@ -6,16 +6,25 @@
         <hr>
         <div class="form-group">
             <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+            </div>
+            <div class="form-group">
+                <label for="sobrenome">Sobrenome</label>
+                <input type="text" name="Sobrenome" class="form-control" id="sobrenome" placeholder="Sobrenome"
+                    formControlName="sobrenome">
+            </div>
+            <div class="form-group">
                 <label for="estaDeFerias">Está de férias</label><br>
                 <div class="form-check">
-                    <input class="form-check-input" value="sim" type="radio" formControlName="estaDeFerias"
+                    <input class="form-check-input" value="true" type="radio" formControlName="estaDeFerias"
                         id="flexRadioDefault1">
                     <label class="form-check-label" for="flexRadioDefault1">
                         Sim
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" value="nao" type="radio" formControlName="estaDeFerias"
+                    <input class="form-check-input" value="false" type="radio" formControlName="estaDeFerias"
                         id="flexRadioDefault2" checked>
                     <label class="form-check-label" for="flexRadioDefault2">
                         Não

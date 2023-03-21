@@ -1,6 +1,6 @@
 export interface Certificacao {
     nome: String,
     descricao: String,
-    dataInicio: Date,
-    dataFinalizacao: Date
+    dataInicio: String,
+    dataFinalizacao: String
 }

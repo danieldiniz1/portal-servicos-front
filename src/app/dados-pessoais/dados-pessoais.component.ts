@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ServiceService } from '../service.service';
+import { ServiceDadosPessoais } from '../service/serviceDadosPessoais';
+import { cpf } from 'cpf-cnpj-validator';
 
 @Component({
   selector: 'app-dados-pessoais',
@@ -12,7 +13,7 @@ export class DadosPessoaisComponent implements OnInit {
   formPessoal: FormGroup
   constructor(
     private formBuilder: FormBuilder,
-    private service: ServiceService
+    private service: ServiceDadosPessoais
   ) { }
 
   ngOnInit(): void {
@@ -25,11 +26,16 @@ export class DadosPessoaisComponent implements OnInit {
     })
   }
   onSubmit() {
+    const num = this.formPessoal.value.cpf
+    this.formPessoal.patchValue({
+      cpf: cpf.format(num)
+    })
     console.log(this.formPessoal.value)
-    this.service.updatePessoal(this.formPessoal.value).subscribe(value => {
+    this.service.createDadosPessoaisByFuncionario(this.formPessoal.value).subscribe(value => {
       console.log(value)
+      alert("Dados Pessoais salvo com sucesso!")
       this.formPessoal.reset()
-    }, (erro: any) => alert("Erro"))
+    }, (erro: any) => alert("Erro ao salvar os dados!"))
   }
   verificaValidTouched(campo: any) {
     return !this.formPessoal.get(campo).valid && this.formPessoal.get(campo).touched

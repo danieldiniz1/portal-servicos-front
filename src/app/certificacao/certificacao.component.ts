@@ -22,6 +22,13 @@ export class CertificacaoComponent implements OnInit {
     })
   }
   onSubmit() { 
+    console.log(this.formCertificacao.value)
+    const data = this.formCertificacao.value.dataInicio
+    const dataRetorno = this.formCertificacao.value.dataFinalizacao
+    this.formCertificacao.patchValue({
+      dataInicio: data.split("-").reverse().join("/"),
+      dataFinalizacao: dataRetorno.split("-").reverse().join("/")
+    })
     this.service.createCertificacaoByFuncionario(this.formCertificacao.value).subscribe(value =>{
       console.log(value)
       this.formCertificacao.reset()}, (erro: any) => alert("Erro"))

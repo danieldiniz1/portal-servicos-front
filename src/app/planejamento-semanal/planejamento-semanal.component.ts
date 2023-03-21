@@ -33,14 +33,15 @@ export class PlanejamentoSemanalComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.formPlanejamento.value)
-    // console.log(this.form.value)
+    const dataPrev = this.formPlanejamento.value.dataInicio
+    const dataEfet = this.formPlanejamento.value.dataFinalizacao
+    this.formPlanejamento.patchValue({
+      dataInicio: dataPrev.split("-").reverse().join("/"),
+      dataFinalizacao: dataEfet.split("-").reverse().join("/")
+    })
     this.servicePlanejamento.updatePlanejamento(this.formPlanejamento.value).subscribe(value =>{
       console.log(value)
-      this.formPlanejamento.reset()}, (erro: any) => alert("Erro"))
-      // this.service.newPlanejamento(this.formPlanejamento.value).subscribe(value => {
-      //   console.log(value)
-      //   alert(value)
-      //   // this.formPlanejamento.reset()
-      // }, (erro: any) => alert(erro))
+      alert("Planejamento salvo com sucesso!")
+      this.formPlanejamento.reset()}, (erro: any) => alert("Erro ao salvar os dados!"))
   }
 }
