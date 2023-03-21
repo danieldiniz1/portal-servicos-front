@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ServiceService } from '../service.service';
+import { ServiceDesligamento } from '../service/serviceDesligamento';
 
 @Component({
   selector: 'app-desligamento',
@@ -11,13 +12,15 @@ export class DesligamentoComponent implements OnInit {
   formDesligamento: FormGroup
   constructor(
     private formBuilder: FormBuilder,
-    private service: ServiceService
+    private service: ServiceDesligamento
     ) { }
 
   ngOnInit(): void {
     this.formDesligamento = this.formBuilder.group({
-      estaDesligado: ['nao', [Validators.required]],
-      devolucaoEquipamento: ['nao', Validators.required],
+      nome: ['',[Validators.required]],
+      sobrenome: ['', [Validators.required]],
+      estaDesligado: ['false', [Validators.required]],
+      devolucaoEquipamento: ['false', Validators.required],
       observacao: [''],
       dataAfastamento: [''],
       dataInforme: ['']
@@ -25,9 +28,16 @@ export class DesligamentoComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.formDesligamento.value)
-    this.service.updateDesligamento(this.formDesligamento.value).subscribe(value =>{
+    const data = this.formDesligamento.value.dataAfastamento
+    const dataInforme = this.formDesligamento.value.dataInforme
+    this.formDesligamento.patchValue({
+      dataAfastamento: data.split("-").reverse().join("/"),
+      dataInforme: dataInforme.split("-").reverse().join("/")
+    })
+    this.service.createDesligamentoByFuncionario(this.formDesligamento.value).subscribe(value =>{
       console.log(value)
-      this.formDesligamento.reset()}, (erro: any) => alert("Erro"))
+      alert("Desligamento salvo com sucesso!")
+      this.formDesligamento.reset()}, (erro: any) => alert("Erro ao salvar so dados!"))
   }
 
 }

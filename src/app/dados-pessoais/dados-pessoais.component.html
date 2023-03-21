@@ -19,8 +19,8 @@
         </div>
         <div class="form-group" [ngClass]="aplicaCssErro('cpf')">
             <label for="cpf">CPF</label>
-            <input type="text" class="form-control" id="cpf" placeholder="Somente Números" maxlength="11"
-                formControlName="cpf">
+            <input type="text" class="form-control" id="cpf" placeholder="00000000000" maxlength="11"
+                formControlName="cpf" >
             <app-campo-control-erro [mostrarErro]="verificaValidTouched('cpf')" msgErro="CPF é obrigatório.">
             </app-campo-control-erro>
         </div>

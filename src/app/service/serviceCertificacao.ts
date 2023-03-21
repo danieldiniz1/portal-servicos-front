@@ -11,7 +11,7 @@ import { Certificacao } from "../shared/models/certificacao.model"
     url =  '/api'
     constructor(private http: HttpClient){ }
     createCertificacaoByFuncionario(dados: any): Observable<Certificacao>{
-      return this.http.post<Certificacao>(`${this.url}/api/v1/atestados/atualizar${dados.nome}_${dados.sobrenome}`,dados)
+      return this.http.post<Certificacao>(`${this.url}/api/v1/certificacao/vincular/${dados.nomeFuncionario}_${dados.sobrenome}`,dados)
    }
    createCertificacao(dados: any): Observable<Certificacao>{
     return this.http.post<Certificacao>(`${this.url}/criar`,dados)

@@ -10,9 +10,10 @@ import { Atestados } from "../shared/models/atestado.model"
     url =  '/api'
     constructor(private http: HttpClient){ }
    createAtestadoByFuncionario(dados: any): Observable<Atestados>{
-      return this.http.post<Atestados>(`${this.url}/api/v1/atestados/atualizar${dados.nome}_${dados.sobrenome}`,dados)
+      return this.http.post<Atestados>(`${this.url}/api/v1/atestados/vincular/${dados.nome}_${dados.sobrenome}`,dados)
    }
    createAtestado(dados: any): Observable<Atestados>{
-    return this.http.post<Atestados>(`${this.url}/criar`,dados)
+    return this.http.post<Atestados>(`${this.url}/criar`, dados)
    }
+   
   }

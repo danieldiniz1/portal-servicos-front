@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ServiceService } from '../service.service';
+import { ServiceDadosVivo } from '../service/serviceDadosVivo';
 
 @Component({
   selector: 'app-dados-vivo',
@@ -11,25 +12,28 @@ export class DadosVivoComponent implements OnInit {
   formVivo: FormGroup
   constructor(
     private formBuilder: FormBuilder,
-    private service: ServiceService
+    private service: ServiceDadosVivo
   ) { }
 
   ngOnInit(): void {
     this.formVivo = this.formBuilder.group({
+      nome: ['',[Validators.required]],
+      sobrenome: ['', [Validators.required]],
       contrato: ['', [Validators.required]],
-      sUser: ['', [Validators.required]],
-      acesso: ['nao', [Validators.required]],
-      acessoJira: ['nao', [Validators.required]],
-      acessoGitLab: ['nao', [Validators.required]],
-      acessoWiki: ['nao', [Validators.required]]
+      user: ['', [Validators.required]],
+      acesso: ['false', [Validators.required]],
+      acessoJira: ['false', [Validators.required]],
+      acessoGitLab: ['false', [Validators.required]],
+      acessoWiki: ['false', [Validators.required]]
     })
   }
   onSubmit() {
     console.log(this.formVivo.value)
-    this.service.updateVivo(this.formVivo.value).subscribe(value => {
+    this.service.createDadosVivoByFuncionario(this.formVivo.value).subscribe(value => {
       console.log(value)
+      alert("Dados vivo salvos com sucesso!")
       this.formVivo.reset()
-    }, (erro: any) => alert("Erro"))
+    }, (erro: any) => alert("Erro ao salvar os dados!"))
   }
   verificaValidTouched(campo: any) {
     return !this.formVivo.get(campo).valid && this.formVivo.get(campo).touched

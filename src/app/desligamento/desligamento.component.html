@@ -4,17 +4,26 @@
         <br>
         <h5 class="main-title">Desligamento</h5>
         <hr>
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+        </div>
+        <div class="form-group">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" name="Sobrenome" class="form-control" id="sobrenome" placeholder="Sobrenome"
+                formControlName="sobrenome">
+        </div>
         <div class="form-group" >
             <label for="estaDesligado">Está Desligado</label><br>
             <div class="form-check">
-                <input class="form-check-input" value="sim" type="radio" formControlName="estaDesligado"
+                <input class="form-check-input" value="true" type="radio" formControlName="estaDesligado"
                     id="flexRadioDefault1">
                 <label class="form-check-label" for="flexRadioDefault1">
                     Sim
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" value="nao" type="radio" formControlName="estaDesligado"
+                <input class="form-check-input" value="false" type="radio" formControlName="estaDesligado"
                     id="flexRadioDefault2" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
                     Não
@@ -25,14 +34,14 @@
         <div class="form-group">
             <label for="devolucaoEquipamento">Devolução do Equipamento</label>
             <div class="form-check">
-                <input class="form-check-input" value="sim" type="radio" formControlName="devolucaoEquipamento"
+                <input class="form-check-input" value="true" type="radio" formControlName="devolucaoEquipamento"
                     id="flexRadioDefault1">
                 <label class="form-check-label" for="flexRadioDefault1">
                     Sim
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" value="nao" type="radio" formControlName="devolucaoEquipamento"
+                <input class="form-check-input" value="false" type="radio" formControlName="devolucaoEquipamento"
                     id="flexRadioDefault2" checked>
                 <label class="form-check-label" for="flexRadioDefault2">
                     Não

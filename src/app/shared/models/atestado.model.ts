@@ -3,6 +3,6 @@ export interface Atestados {
     motivo: String,
     medico: String,
     hospital: String,
-    dataAfastamento: Date,
-    dataRetorno: Date
+    dataAfastamento: String,
+    dataRetorno: String
 }

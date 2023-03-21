@@ -1,15 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { cpf } from 'cpf-cnpj-validator';
 import { ServiceService } from '../service.service';
+import { ServiceFuncionario } from '../service/serviceFuncionario';
 import { DropdownService } from '../shared/services/dropdown.service';
 
 @Component({
-  selector: 'app-data-form',
-  templateUrl: './data-form.component.html',
-  styleUrls: ['./data-form.component.scss']
+  selector: 'app-funcionarios',
+  templateUrl: './funcionarios.component.html',
+  styleUrls: ['./funcionarios.component.scss']
 })
-export class DataFormComponent implements OnInit {
+export class FuncionariosComponent implements OnInit {
 
   formulario: FormGroup
   estaDesligadoOp: any[]
@@ -17,38 +19,17 @@ export class DataFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private dropdownService: DropdownService,
-    private service: ServiceService
+    private service: ServiceFuncionario
   ) {
   }
 
   ngOnInit() {
-
-    this.estaDesligadoOp = this.dropdownService.getEstaDesligado()
-    // this.formulario = new FormGroup({
-    //   perfil: new FormControl(null),
-    //   cargo: new FormControl(null),
-    //   segmento: new FormControl(null),
-    //   codigoSAP: new FormControl(null)
-    // })
 
     this.formulario = this.formBuilder.group({
       perfil: ['', [Validators.nullValidator, Validators.required]],
       cargo: ['', [Validators.nullValidator, Validators.required]],
       segmento: ['', [Validators.nullValidator, Validators.required]],
       codigoSAP: ['', [Validators.nullValidator, Validators.required]],
-      desligamento: this.formBuilder.group({
-        estaDesligado: ['nao', [Validators.required]],
-        devolucaoEquipamento: ['nao', Validators.required],
-        observacao: [''],
-        dataAfastamento: [''],
-        dataInforme: ['']
-      }),
-      ferias: this.formBuilder.group({
-        estaDeFerias: ['nao', [Validators.required]],
-        dataPrevisao: [''],
-        dataEfetivacao: [''],
-        dataRetorno: [''],
-      }),
       dadosPessoais: this.formBuilder.group({
         nome: ['', [Validators.required]],
         sobrenome: ['', [Validators.required]],
@@ -57,41 +38,26 @@ export class DataFormComponent implements OnInit {
         telefone: ['', [Validators.required]]
       }),
       dadosVivo: this.formBuilder.group({
-        contrato: ['', [Validators.required]],
-        sUser: ['', [Validators.required]],
-        acesso: ['nao', [Validators.required]],
-        acessoJira: ['nao', [Validators.required]],
-        acessoGitLab: ['nao', [Validators.required]],
-        acessoWiki: ['nao', [Validators.required]]
-      }),
-      planejamentoSemanal: this.formBuilder.group({
-        titulo: [''],
-        descricao: [''],
-        dataInicio: [''],
-        dataFinalizacao: ['']
-      }),
-      certificacoes: this.formBuilder.group({
-        nome: [''],
-        descricao: [''],
-        dataInicio: [''],
-        dataFinalizacao: ['']
-      }),
-      atestados: this.formBuilder.group({
-        cid: [''],
-        motivo: [''],
-        medico: [''],
-        hospital: [''],
-        dataAfastamento: [''],
-        dataRetorno: ['']
-      })
+          contrato: ['', [Validators.required]],
+          sUser: ['', [Validators.required]],
+          acesso: ['false', [Validators.required]],
+          acessoJira: ['false', [Validators.required]],
+          acessoGitLab: ['false', [Validators.required]],
+          acessoWiki: ['false', [Validators.required]]
+        }),
     })
 
   }
   onSubmit() {
     console.log(this.formulario.value)
-    // this.service.salvar(this.formulario.value).subscribe(value =>{
-    //   console.log(value)
-    //   this.formulario.reset()}, (erro: any) => alert("Erro"))
+    const num = this.formulario.value.dadosPessoais.cpf
+    this.formulario.patchValue({
+      cpf: cpf.format(num)
+    })
+    this.service.createFuncionario(this.formulario.value).subscribe(value =>{
+      console.log(value)
+      alert("Funcionário salvo com sucesso!")
+      this.formulario.reset()}, (erro: any) => alert("Erro ao salvar os dados!"))
 
     // this.http.post('http://localhost:8080/api/v1/funcionario', JSON.stringify(this.formulario.value))
     //   .subscribe(dados => {
@@ -117,5 +83,4 @@ export class DataFormComponent implements OnInit {
   //       return campoEmail.errors['email'] && campoEmail.touched
   //     }
   //  }
-
 }
