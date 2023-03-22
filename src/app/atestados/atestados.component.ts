@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ServiceAtestado } from '../service/serviceAtestado';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-atestados',

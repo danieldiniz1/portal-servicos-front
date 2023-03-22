@@ -2,9 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { cpf } from 'cpf-cnpj-validator';
-import { ServiceService } from '../service.service';
 import { ServiceFuncionario } from '../service/serviceFuncionario';
-import { DropdownService } from '../shared/services/dropdown.service';
 
 @Component({
   selector: 'app-funcionarios',
@@ -18,7 +16,6 @@ export class FuncionariosComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private dropdownService: DropdownService,
     private service: ServiceFuncionario
   ) {
   }
@@ -39,7 +36,7 @@ export class FuncionariosComponent implements OnInit {
       }),
       dadosVivo: this.formBuilder.group({
           contrato: ['', [Validators.required]],
-          sUser: ['', [Validators.required]],
+          user: ['', [Validators.required]],
           acesso: ['false', [Validators.required]],
           acessoJira: ['false', [Validators.required]],
           acessoGitLab: ['false', [Validators.required]],
@@ -50,9 +47,8 @@ export class FuncionariosComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.formulario.value)
-    const num = this.formulario.value.dadosPessoais.cpf
     this.formulario.patchValue({
-      cpf: cpf.format(num)
+      cpf: cpf.format(this.formulario.value.dadosPessoais.cpf)
     })
     this.service.createFuncionario(this.formulario.value).subscribe(value =>{
       console.log(value)

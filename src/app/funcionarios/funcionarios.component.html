@@ -46,7 +46,7 @@
     <div class="form-group" formGroupName="dadosPessoais">
       <label for="cpf">CPF</label>
       <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00"
-      maxlength="14" formControlName="cpf">
+      maxlength="11" formControlName="cpf">
       <!-- oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" -->
       <app-campo-control-erro [mostrarErro]="verificaValidTouched('dadosPessoais.cpf')" msgErro="CPF é obrigatório.">
       </app-campo-control-erro>
@@ -78,9 +78,9 @@
         </app-campo-control-erro>
       </div>
       <div class="form-group" formGroupName="dadosVivo">
-        <label for="sUser">S-User</label>
-        <input type="text" class="form-control" id="sUser" placeholder="S-User" formControlName="sUser">
-        <app-campo-control-erro [mostrarErro]="verificaValidTouched('dadosVivo.sUser')" msgErro="S-User é obrigatório.">
+        <label for="user">S-User</label>
+        <input type="text" class="form-control" id="user" placeholder="S-User" formControlName="user">
+        <app-campo-control-erro [mostrarErro]="verificaValidTouched('dadosVivo.user')" msgErro="S-User é obrigatório.">
         </app-campo-control-erro>
       </div>
       <div class="form-group" formGroupName="dadosVivo">
