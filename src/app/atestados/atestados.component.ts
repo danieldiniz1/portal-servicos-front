@@ -38,15 +38,7 @@ export class AtestadosComponent implements OnInit {
       console.log(value)
       alert("Atestado salvo com sucesso!")
       this.formAtestado.reset()
-    }, (erro: any) => alert("Erro"))
+    }, (erro: any) => alert("Erro ao salvar os dados!"))
   }
-  // converteData(dados: any){
-  //   const data = dados.value.dataAfastamento
-  //   const dataRetorno = dados.value.dataRetorno
-  //  return dados.patchValue({
-  //     dataAfastamento: data.split("-").reverse().join("/"),
-  //     dataRetorno: dataRetorno.split("-").reverse().join("/")
-  //   })
-  //  }
 }
 
