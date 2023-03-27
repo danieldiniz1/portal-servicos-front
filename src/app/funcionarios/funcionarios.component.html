@@ -45,7 +45,7 @@
     </div>
     <div class="form-group" formGroupName="dadosPessoais">
       <label for="cpf">CPF</label>
-      <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00"
+      <input type="text" class="form-control" id="cpf" placeholder="00000000000"
       maxlength="11" formControlName="cpf">
       <!-- oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" -->
       <app-campo-control-erro [mostrarErro]="verificaValidTouched('dadosPessoais.cpf')" msgErro="CPF é obrigatório.">
