@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  API: 'http://54.160.72.97:8080'
-  // https://portal-servicos-test.herokuapp.com
+  API: 'https://portal-servicos-test.herokuapp.com'
+  // http://54.160.72.97:8080
 };
 
 /*
