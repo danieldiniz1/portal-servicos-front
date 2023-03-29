@@ -31,7 +31,7 @@ export class CertificacaoComponent implements OnInit {
     })
     this.service.createCertificacaoByFuncionario(this.formCertificacao.value).subscribe(value =>{
       console.log(value)
-      alert("Certificção salva com sucesso!")
+      alert("Certificação salva com sucesso!")
       this.formCertificacao.reset()
       this.formCertificacao.reset()}, (erro: any) => alert("Erro ao salvar os dados!"))
   }
