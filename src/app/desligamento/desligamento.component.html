@@ -1,0 +1,71 @@
+<br>
+<div class="container">
+    <form class="form-horizontal" [formGroup]="formDesligamento" (ngSubmit)="onSubmit()">
+        <br>
+        <h5 class="main-title">Desligamento</h5>
+        <hr>
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+        </div>
+        <div class="form-group">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" name="Sobrenome" class="form-control" id="sobrenome" placeholder="Sobrenome"
+                formControlName="sobrenome">
+        </div>
+        <div class="form-group" >
+            <label for="estaDesligado">Está Desligado</label><br>
+            <div class="form-check">
+                <input class="form-check-input" value="true" type="radio" formControlName="estaDesligado"
+                    id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Sim
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" value="false" type="radio" formControlName="estaDesligado"
+                    id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Não
+                </label>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="devolucaoEquipamento">Devolução do Equipamento</label>
+            <div class="form-check">
+                <input class="form-check-input" value="true" type="radio" formControlName="devolucaoEquipamento"
+                    id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Sim
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" value="false" type="radio" formControlName="devolucaoEquipamento"
+                    id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Não
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="observacao" class="form-label">Observações:</label>
+                <textarea class="form-control" id="observacao" rows="3" formControlName="observacao"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="dataAfastamento">Data do Afastamento</label>
+            <input type="date" class="form-control" id="dataAfastamento" formControlName="dataAfastamento">
+        </div>
+        <div class="form-group">
+            <label for="dataInforme">Data Informe</label>
+            <input type="date" class="form-control" id="dataInforme" formControlName="dataInforme">
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+
+        <app-form-debug [form]="formDesligamento"></app-form-debug>
+    </form>
+</div>
+<br>

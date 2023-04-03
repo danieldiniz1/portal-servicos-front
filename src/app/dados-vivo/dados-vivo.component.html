@@ -1,0 +1,104 @@
+<br>
+<div class="container">
+    <form class="form-horizontal" [formGroup]="formVivo" (ngSubmit)="onSubmit()">
+        <br>
+        <h5 class="main-title">Dados Vivo</h5>
+        <hr>
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+        </div>
+        <div class="form-group">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" name="Sobrenome" class="form-control" id="sobrenome" placeholder="Sobrenome"
+                formControlName="sobrenome">
+        </div>
+        <div class="form-group">
+            <div class="form-group">
+                <label for="contrato">Contrato</label>
+                <input type="text" class="form-control" id="contrato" placeholder="Contrato" formControlName="contrato">
+                <app-campo-control-erro [mostrarErro]="verificaValidTouched('contrato')" msgErro="O contrato é obrigatório.">
+                </app-campo-control-erro>
+            </div>
+            <div class="form-group">
+                <label for="user">S-User</label>
+                <input type="text" class="form-control" id="user" placeholder="S-User" formControlName="user">
+                <app-campo-control-erro [mostrarErro]="verificaValidTouched('user')" msgErro="O S-User é obrigatório.">
+                </app-campo-control-erro>
+            </div>
+            <div class="form-group">
+                <label for="acesso">Acesso</label>
+                <div class="form-check">
+                    <input class="form-check-input" value="true" type="radio" formControlName="acesso"
+                        id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Sim
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="false" type="radio" formControlName="acesso"
+                        id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Não
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="acessoJira">Acesso Jira</label>
+                <div class="form-check">
+                    <input class="form-check-input" value="true" type="radio" formControlName="acessoJira"
+                        id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Sim
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="false" type="radio" formControlName="acessoJira"
+                        id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Não
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="acessoGitLab">Acesso GitLab</label>
+                <div class="form-check">
+                    <input class="form-check-input" value="true" type="radio" formControlName="acessoGitLab"
+                        id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Sim
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="false" type="radio" formControlName="acessoGitLab"
+                        id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Não
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="acessoWiki">Acesso Wiki</label>
+                <div class="form-check">
+                    <input class="form-check-input" value="true" type="radio" formControlName="acessoWiki"
+                        id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Sim
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="false" type="radio" formControlName="acessoWiki"
+                        id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Não
+                    </label>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+
+        <app-form-debug [form]="formVivo"></app-form-debug>
+    </form>
+</div>
+<br>

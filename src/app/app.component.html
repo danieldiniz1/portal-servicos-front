@@ -1,18 +1,31 @@
 <nav class="navbar bg-primary" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Portal de Serviços</a>
+    <a class="navbar-brand"routerLink="/telaPrincipal">Portal de Serviços</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <!-- <a class="nav-link active" aria-current="page" routerLink="#">Home</a> -->
-        <!-- <a class="nav-link" routerLink="#">Features</a>
-        <a class="nav-link" routerLink="#">Pricing</a> -->
+        <a class="nav-link active" aria-current="page" routerLink="/telaPrincipal">Home</a>
+       <a class="nav-link" routerLink="/funcionarios">Cadastro Funcionário</a>
+        <a class="nav-link" routerLink="/ferias">Férias</a> 
+        <a class="nav-link" routerLink="/desligamento">Desligamento</a> 
+        <a class="nav-link" routerLink="dadosPessoais">Dados Pessoais</a> 
+        <a class="nav-link" routerLink="/dadosVivo">Dados Vivo</a> 
+        <a class="nav-link" routerLink="/planejamentoSemanal">Planejamento Semanal</a> 
+        <a class="nav-link" routerLink="/certificacao">Certificações</a> 
+        <a class="nav-link" routerLink="/atestados">Atestados</a> 
       </div>
     </div>
   </div>
 </nav>
-<div class="container">
+<div>
   <router-outlet></router-outlet>
 </div>
+<footer class="footer">
+  <div class="text-center p-3" style="background-color: rgba(13,110,253, 0.8);">
+    © 2023 Copyright: NTTDATA
+    <!-- <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a> -->
+  </div>
+
+</footer>

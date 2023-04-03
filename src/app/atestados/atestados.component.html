@@ -1,0 +1,45 @@
+<div class="container">
+  <form class="form-horizontal" [formGroup]="formAtestado" (ngSubmit)="onSubmit()">
+    <br>
+    <h5 class="main-title">Atestados</h5>
+    <hr>
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+    </div>
+    <div class="form-group">
+      <label for="sobrenome">Sobrenome</label>
+      <input type="text" name="Sobrenome" class="form-control" id="sobrenome" placeholder="Sobrenome"
+        formControlName="sobrenome">
+    </div>
+    <div class="form-group">
+      <label for="cid">CID</label>
+      <input type="text" class="form-control" id="cid" placeholder="CID" formControlName="cid">
+    </div>
+    <div class="form-group">
+      <label for="motivo">Motivo</label>
+      <input type="text" class="form-control" id="motivo" placeholder="Motivo" formControlName="motivo">
+    </div>
+    <div class="form-group">
+      <label for="medico">Médico</label>
+      <input type="text" class="form-control" id="medico" placeholder="Médico" formControlName="medico">
+    </div>
+    <div class="form-group">
+      <label for="hospital">Hospital</label>
+      <input type="text" class="form-control" id="hospital" placeholder="Hospital" formControlName="hospital">
+    </div>
+    <div class="form-group">
+      <label for="dataAfastamento">Data Afastamento</label>
+      <input type="date"  class="form-control" id="dataAfastamento" formControlName="dataAfastamento">
+    </div>
+    <div class="form-group">
+      <label for="dataRetorno">Data finalização</label>
+      <input type="date"  class="form-control" id="dataRetorno" formControlName="dataRetorno">
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+
+    <app-form-debug [form]="formAtestado"></app-form-debug>
+  </form>
+</div>
+<br>

@@ -1,15 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DataFormModule } from './data-form/data-form.module';
+import { FuncionariosModule } from './funcionarios/funcionarios.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -17,9 +19,9 @@ import { DataFormModule } from './data-form/data-form.module';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    DataFormModule
+    FuncionariosModule
   ],
-  providers: [],
+  providers: [{provide: LOCALE_ID,useValue: 'pt'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

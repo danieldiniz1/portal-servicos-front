@@ -18,7 +18,6 @@ import { DropdownService } from './services/dropdown.service';
   declarations: [
     FormDebugComponent,
     CampoControlErroComponent,
-    CampoControlErroComponent,
     // ErrorMsgComponent,
     // InputFieldComponent,
   ],
